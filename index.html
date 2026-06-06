@@ -2,39 +2,36 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حلويات نسرين | نكهات لا تُنسى</title>
+    <title>حلويات نسرين | فخامة الصناعة المنزلية</title>
     <style>
-        /* خلفية متحركة */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital@1&family=Tajawal:wght@400;700&display=swap');
+        
         body { 
-            margin: 0; font-family: 'Cairo', sans-serif; 
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%; animation: gradient 15s ease infinite;
-            color: #333; min-height: 100vh;
+            margin: 0; font-family: 'Tajawal', sans-serif;
+            background: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=1600') no-repeat center center fixed;
+            background-size: cover; min-height: 100vh; text-align: center; color: #fff;
         }
-        @keyframes gradient { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+        .overlay { background: rgba(0,0,0,0.5); padding: 50px 20px; min-height: 100vh; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
         
-        header { padding: 50px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+        .card { 
+            background: rgba(255, 255, 255, 0.95); border: 2px solid #d4af37;
+            border-radius: 30px 10px 30px 10px; width: 280px; padding: 20px;
+            color: #333; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 20px; border: 2px solid #d4af37; }
         
-        /* بطاقات أنيقة */
-        .card { background: white; border-radius: 25px; width: 280px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); transition: 0.4s; }
-        .card:hover { transform: scale(1.05); }
-        .product-img { width: 100%; height: 180px; background: #eee; border-radius: 20px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 50px; }
-        
-        .btn { display: block; padding: 12px; margin: 10px 0; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn { display: block; padding: 12px; margin: 10px 0; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.3s; }
         .btn-wa { background: #25d366; color: white; }
-        .btn-gallery { background: #5d2e0c; color: white; }
+        .btn-img { background: #d4af37; color: white; }
     </style>
 </head>
 <body>
-
-    <header>
+    <div class="overlay">
         <h1>حلويات نسرين 🌸</h1>
-        <p>جودةٌ تصنع الفرح في كل قطعة</p>
-    </header>
-
-    <div class="container" id="products-list"></div>
+        <p>نصنع الفرح بأرقى النكهات المنزلية</p>
+        <div class="container" id="products-list"></div>
+    </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
@@ -42,19 +39,29 @@
 
         const db = getDatabase(initializeApp({ databaseURL: "https://nesreen-sweets-default-rtdb.firebaseio.com" }));
 
+        // خريطة صور احترافية لكل صنف
+        const images = {
+            "معمول عجوة": "https://images.unsplash.com/photo-1621351187431-72901309f3ed?w=500",
+            "معمول جوز": "https://images.unsplash.com/photo-1605335555728-6623193e157e?w=500",
+            "معمول فستق": "https://images.unsplash.com/photo-1605335555728-6623193e157e?w=500",
+            "بيتفور": "https://images.unsplash.com/photo-1599785209796-7860a3b23423?w=500",
+            "برازق": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+            "كوكيز بقطع الشوكولاتة": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500"
+        };
+
         onValue(ref(db, 'products'), (snapshot) => {
             const list = document.getElementById('products-list');
             list.innerHTML = '';
             snapshot.forEach((child) => {
                 const name = child.val();
+                const imgUrl = images[name] || "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500";
                 const div = document.createElement('div');
                 div.className = 'card';
-                // أيقونات تجريبية جذابة بدل الصور المعطلة
                 div.innerHTML = `
-                    <div class="product-img">🍰</div>
+                    <img src="${imgUrl}" alt="${name}">
                     <h2>${name}</h2>
-                    <a class="btn btn-wa" href="https://wa.me/963982344943?text=مرحباً، أود طلب ${name}">اطلب الآن عبر واتساب</a>
-                    <a class="btn btn-gallery" href="javascript:alert('قريباً ستظهر صور ${name} المميزة هنا!')">عرض الصور المميزة</a>
+                    <a class="btn btn-wa" href="https://wa.me/963982344943?text=مرحباً، لقد شاهدت منصة حلويات نسرين ومعجب بالأصناف. أود طلب: ${name}. رابط المنصة: ${window.location.href}">اطلب ${name} الآن</a>
+                    <a class="btn btn-img" href="${imgUrl}" target="_blank">عرض صورة المنتج</a>
                 `;
                 list.appendChild(div);
             });
