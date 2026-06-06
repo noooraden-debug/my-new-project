@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حلويات نسرين - أطيب النكهات المنزلية</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fffaf0; text-align: center; margin: 0; padding: 0; }
+        header { background: #d2691e; color: white; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+        .product-card { background: white; border-radius: 15px; width: 250px; margin: 15px; padding: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-10px); }
+        .product-card h3 { color: #8b4513; }
+        .btn { display: inline-block; padding: 12px 20px; background: #25d366; color: white; text-decoration: none; border-radius: 25px; margin-top: 15px; font-weight: bold; }
+        .btn:hover { background: #128c7e; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>حلويات نسرين 🌸</h1>
+        <p>صنع بحب في المنزل</p>
+    </header>
+
+    <div class="container" id="products-list">
+        <p>جاري تحميل الحلويات الشهية...</p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCoMr64UJl1sLPBoVtFNdJGjeX_W5O76u8",
+            authDomain: "nesreen-sweets.firebaseapp.com",
+            databaseURL: "https://nesreen-sweets-default-rtdb.firebaseio.com",
+            projectId: "nesreen-sweets",
+            storageBucket: "nesreen-sweets.firebasestorage.app",
+            messagingSenderId: "35557370806",
+            appId: "1:35557370806:web:81b221956bc273abb06f17"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const productsRef = ref(db, 'products');
+
+        onValue(productsRef, (snapshot) => {
+            const list = document.getElementById('products-list');
+            list.innerHTML = '';
+            snapshot.forEach((child) => {
+                const name = child.val();
+                const div = document.createElement('div');
+                div.className = 'product-card';
+                div.innerHTML = `
+                    <h3>${name}</h3>
+                    <p>صنع منزلي مميز</p>
+                    <a class="btn" href="https://wa.me/963982344943?text=مرحباً، أريد الاستفسار عن سعر ${name}">اطلب الآن عبر واتساب</a>
+                `;
+                list.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>
 
