@@ -4,46 +4,50 @@
     <meta charset="UTF-8">
     <title>نسرين للحلويات</title>
     <style>
-        body, html { margin: 0; padding: 0; min-height: 100vh; font-family: 'Amiri', serif; }
+        body { margin: 0; padding: 0; font-family: 'Amiri', serif; color: white; text-align: center; }
         
-        /* الخلفية: فيديو مطبخ متحرك */
-        .video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        .video-container video { width: 100%; height: 100%; object-fit: cover; }
+        /* فيديو مطبخ فاخر كخلفية */
+        .bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
         
-        /* التنسيق العام */
-        .header { background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); padding: 40px; color: #fff; text-align: center; border-bottom: 3px solid #d4a373; }
-        .chef-gif { width: 120px; border-radius: 50%; border: 3px solid #d4a373; animation: rotate 10s linear infinite; }
-        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .header { padding: 40px 20px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); }
+        .logo-container { display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .ns-logo { font-size: 3rem; font-weight: bold; color: #d4a373; animation: spin 4s linear infinite; }
+        @keyframes spin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+        .chef-pic { width: 100px; border-radius: 50%; border: 2px solid #d4a373; }
         
-        h1 { font-size: 3.5rem; margin: 10px 0; }
-        .desc { font-size: 1.4rem; color: #d4a373; }
+        /* صندوق التسوق */
+        .shop-box { margin: 50px auto; padding: 30px; width: 80%; background: rgba(255,255,255,0.1); border-radius: 20px; cursor: pointer; border: 2px solid #d4a373; }
+        .hidden-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px; }
-        .card { background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); padding: 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); }
-        .card img { width: 100%; height: 300px; object-fit: cover; border-radius: 20px; border: 3px solid #fff; }
-        .btn { display: block; background: #d4a373; color: #fff; padding: 18px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; text-decoration: none; margin-top: 15px; }
+        .card { background: rgba(0,0,0,0.6); padding: 15px; border-radius: 20px; }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; }
+        .btn { display: block; background: #d4a373; padding: 15px; border-radius: 30px; text-decoration: none; color: white; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video autoplay muted loop playsinline><source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4"></video>
-    </div>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://player.vimeo.com/external/494793617.sd.mp4?s=59468501c569f1437c35e38600d869273c591461&profile_id=164" type="video/mp4">
+    </video>
 
     <div class="header">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJ4ZzR3a253aG52cW54ZzZ3eHh4N2p4ZzZ3eHh4N2p4ZzZ3eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKMGpxxHOGTdzJC/giphy.gif" class="chef-gif">
+        <div class="logo-container">
+            <div class="ns-logo">NS</div>
+            <img src="https://img.freepik.com/free-vector/chef-cartoon-character_1308-33306.jpg" class="chef-pic">
+        </div>
         <h1>نسرين للحلويات</h1>
-        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل.. حيث تمتزج حكايات التراث بلمسة عصرية.</p>
+        <div class="shop-box" onclick="document.getElementById('products').style.display='grid'; this.style.display='none';">
+            <h2>تسوق أشهى الحلويات</h2>
+        </div>
     </div>
 
-    <div class="grid">
+    <div id="products" class="hidden-grid">
         <script>
             const siteURL = "https://noooraden-debug.github.io/my-new-project/";
             function order(item) {
-                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + "\nرابط المنصة: " + siteURL;
+                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + "\nالرابط: " + siteURL;
                 window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
             }
         </script>
-        
         <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
         <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
         <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
@@ -55,4 +59,3 @@
     </div>
 </body>
 </html>
- 
