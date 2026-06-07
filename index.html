@@ -2,41 +2,46 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>نسرين للحلويات | المذاق الأشهى</title>
+    <title>نسرين للحلويات | منصة الذوق الرفيع</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;700&display=swap');
         
+        /* تصميم الخلفية: مطبخ حي ومتحرك */
+        html, body { margin: 0; padding: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Tajawal', sans-serif; }
         body {
-            margin: 0; padding: 0;
-            background: radial-gradient(circle, #5d4037, #3e2723, #1b1b1b);
+            background: linear-gradient(135deg, #3e2723, #5d4037, #8d6e63, #d4a373);
             background-size: 400% 400%;
-            animation: moveGradient 10s ease infinite;
-            font-family: 'Tajawal', sans-serif; text-align: center; color: #fff;
+            animation: kitchenPulse 12s ease infinite;
+            color: white; text-align: center;
         }
-        @keyframes moveGradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-        
-        .hero { padding: 60px 20px; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
-        h1 { font-family: 'Amiri', serif; font-size: 3.5rem; margin-bottom: 10px; }
-        .desc { font-size: 1.3rem; color: #d4a373; margin-bottom: 20px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; padding: 40px; }
-        .card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 30px; border: 2px solid #d4a373; transition: 0.4s; }
-        .card:hover { transform: translateY(-15px); background: rgba(212,163,115,0.1); }
-        .card img { width: 100%; height: 320px; object-fit: cover; border-radius: 20px; }
-        .btn { display: block; background: #d4a373; color: #2c1e1a; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; margin-top: 15px; }
+        @keyframes kitchenPulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header { padding: 80px 20px; background: rgba(0,0,0,0.2); backdrop-filter: blur(10px); border-bottom: 2px solid #d4a373; }
+        h1 { font-family: 'Amiri', serif; font-size: 4rem; display: flex; justify-content: center; align-items: center; gap: 15px; }
+        .desc { font-size: 1.5rem; color: #fdf6e3; margin-top: 10px; text-shadow: 2px 2px 4px #000; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; padding: 50px; }
+        .card { background: rgba(255,255,255,0.1); border: 2px solid #d4a373; padding: 15px; border-radius: 30px; transition: 0.6s; backdrop-filter: blur(5px); }
+        .card:hover { transform: scale(1.05); background: rgba(212,163,115,0.2); }
+        .card img { width: 100%; height: 350px; object-fit: cover; border-radius: 20px; border: 4px solid #fff; }
+        .btn { display: block; background: #d4a373; color: #2c1e1a; padding: 20px; border-radius: 50px; font-weight: bold; font-size: 1.4rem; text-decoration: none; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>نسرين للحلويات 👩‍🍳</h1>
-        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل.. حيث تمتزج حكايات التراث بلمسة عصرية.</p>
+    <div class="header">
+        <h1>👩‍🍳 نسرين للحلويات</h1>
+        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل.. منصة فاخرة لكل من يعشق التفرد.</p>
     </div>
     
     <div class="grid">
         <script>
-            const siteURL = "رابط_منصتك_هنا"; // ضعي رابط موقعك على GitHub هنا
+            const siteURL = "https://noooraden-debug.github.io/my-new-project/";
             function order(item) {
-                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + " الرابط: " + siteURL;
+                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + "\nرابط المنصة: " + siteURL;
                 window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
             }
         </script>
@@ -52,4 +57,3 @@
     </div>
 </body>
 </html>
- 
