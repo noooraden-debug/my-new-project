@@ -3,37 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أم عمر للحلويات | عالم الفخامة</title>
+<title>أم عمر للحلويات</title>
  
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
  
 <style>
+body, html { margin: 0; padding: 0; width: 100%; height: 100%; color: #fff; font-family: 'Tajawal', sans-serif; overflow-x: hidden; }
  
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    font-family: 'Tajawal', sans-serif;
-    overflow-x: hidden;
-}
- 
-/* فيديو الخلفية */
+/* فيديو الخلفية بدون أي تعتيم */
 .bg-video {
     position: fixed;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(85%);
+    filter: none;   /* لا تعتيم */
     z-index: -1;
 }
  
-/* رأس الصفحة شفاف */
+/* الرأس شفاف */
 .header-glass {
-    background: rgba(0,0,0,0.20);
-    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.10);
+    backdrop-filter: blur(8px);
     padding: 25px 20px;
     text-align: center;
     position: relative;
@@ -41,60 +32,30 @@ body, html {
     border-bottom: 1px solid rgba(255,255,255,0.15);
 }
  
-/* الشعار NS – نسخة مفخمة */
+/* شعار NS */
 .ns-logo {
     font-family: 'Amiri', serif;
-    font-size: 4.8rem;
+    font-size: 4.5rem;
     font-weight: bold;
-    color: #f7d7a5;
-    letter-spacing: 4px;
- 
-    /* تفخيم + ظل فاخر */
+    color: #f8e3b0;
     text-shadow:
-        0 0 12px rgba(255,215,160,0.9),
-        0 0 22px rgba(255,180,90,0.8),
-        0 0 40px rgba(255,160,60,0.6),
-        0 0 60px rgba(255,160,60,0.5);
- 
-    animation: logoGlow 3s infinite alternate ease-in-out;
-}
- 
-/* حركة توهج */
-@keyframes logoGlow {
-    from {
-        text-shadow:
-            0 0 10px rgba(255,215,160,0.7),
-            0 0 20px rgba(255,180,90,0.6),
-            0 0 30px rgba(255,150,50,0.4);
-    }
-    to {
-        text-shadow:
-            0 0 15px rgba(255,230,190,1),
-            0 0 35px rgba(255,190,100,0.9),
-            0 0 55px rgba(255,160,60,0.8),
-            0 0 80px rgba(255,140,40,0.7);
-    }
+        0 0 10px rgba(255,230,160,0.9),
+        0 0 22px rgba(255,200,120,0.8),
+        0 0 35px rgba(255,180,80,0.7);
 }
  
 /* دائرة الشيف */
 .chef-circle {
-    width: 150px;
-    height: 150px;
+    width: 150px; height: 150px;
     margin: 10px auto;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid rgba(255,255,255,0.5);
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(8px);
+    border: 3px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
 }
+.chef-circle img { width: 100%; height: 100%; object-fit: cover; }
  
-.chef-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
- 
-/* النصوص */
 h1 {
     font-family: 'Amiri', serif;
     font-size: 3rem;
@@ -103,130 +64,118 @@ h1 {
  
 .desc {
     font-size: 1.3rem;
-    color: #ffe4c4;
+    color: #ffeccc;
 }
  
-/* زر تصفح شفاف */
+/* زر التصفح */
 .shop-btn {
     background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.40);
     color: #fff;
     padding: 15px 45px;
     border-radius: 40px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     cursor: pointer;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(5px);
     transition: 0.3s;
     margin-top: 20px;
 }
- 
 .shop-btn:hover {
-    background: rgba(255,255,255,0.28);
-    transform: scale(1.08);
-    box-shadow:
-        0 0 15px rgba(255,215,0,0.9),
-        0 0 30px rgba(255,140,0,0.7);
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
 }
  
 /* المنتجات */
 #products {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 22px;
-            padding: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 5;
-        }
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+    padding: 20px;
+    margin-top: 10px;
+}
  
-        .card {
-            background: rgba(0,0,0,0.55);
-            border: 1px solid #d4a373;
-            border-radius: 18px;
-            padding: 15px;
-            text-align: center;
-            animation: fadeUp 1s ease;
-        }
+.card {
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 18px;
+    padding: 12px;
+    text-align: center;
+}
  
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.card img {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+}
  
-        .card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
+.order-btn {
+    display: block;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 12px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 12px;
+    transition: .3s;
+}
  
-        .order-btn {
-            display: block;
-            background: #d4a373;
-            color: #000;
-            padding: 12px;
-            border-radius: 18px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 12px;
-            transition: 0.3s;
-        }
+.order-btn:hover {
+    background: rgba(255,255,255,0.45);
+}
  
-        .order-btn:hover {
-            background: #f0c796;
-        }
-    </style>
+</style>
 </head>
  
 <body>
  
-    <!-- فيديو الخلفية -->
-    <video class="bg-video" autoplay muted loop playsinline webkit-playsinline>
-        <source src="kitchen.mp4" type="video/mp4">
-    </video>
+<!-- فيديو الخلفية -->
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="kitchen.mp4" type="video/mp4">
+</video>
  
-    <div class="header-glass">
-        <div class="ns-logo">AO</div>
-        <div class="chef-circle">
-            <img src="chef.jpg" alt="طباخة">
-        </div>
+<!-- الهيدر -->
+<div class="header-glass">
+    <div class="ns-logo">NS</div>
  
-        <h1>أم عمر للحلويات</h1>
-        <p class="desc">المذاق الأشهى بأجود الأنواع وأرخص الأسعار</p>
- 
-        <button class="shop-btn" onclick="document.getElementById('products').style.display='grid'; this.style.display='none';">
-            تسوق أشهى الحلويات
-        </button>
+    <div class="chef-circle">
+        <img src="chef.jpg">
     </div>
  
-    <div id="products">
-        <script>
-            function order(item) {
-                const siteURL = "https://noooraden-debug.github.io/my-new-project/";
-                const msg = 
+    <h1>أم عمر للحلويات</h1>
+    <p class="desc">المذاق الأشهى بأجود الأنواع وأرخص الأسعار</p>
+ 
+    <button class="shop-btn"
+        onclick="document.getElementById('products').style.display='grid'; this.style.display='none';">
+        تصفح المنتجات
+    </button>
+</div>
+ 
+<!-- المنتجات -->
+<div id="products">
+ 
+<script>
+function order(item) {
+    const msg =
 `مرحبا 🌸
-رأيت منصة أم عمر للحلويات وأعجبتني كثيراً!
-وأرغب بطلب: ${item}
+رأيت منصة أم عمر للحلويات وأعجبتني!
+أرغب بطلب: ${item}`;
+    window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
+}
+</script>
  
-رابط المنصة:
-${siteURL}`;
+<div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
+<div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
+<div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
+<div class="card"><img src="4.jpg"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
+<div class="card"><img src="5.jpg"><h3>كليجه</h3><a class="order-btn" href="javascript:order('كليجه')">اطلب الآن</a></div>
+<div class="card"><img src="6.jpg"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
+<div class="card"><img src="7.jpg"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
+<div class="card"><img src="8.jpg"><h3>البرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
  
-                window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
-            }
-        </script>
- 
-        <!-- المنتجات -->
-        <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
-        <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
-        <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
-        <div class="card"><img src="4.jpg"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
-        <div class="card"><img src="5.jpg"><h3>كليجه</h3><a class="order-btn" href="javascript:order('كليجه')">اطلب الآن</a></div>
-        <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
-        <div class="card"><img src="7.jpg"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
-        <div class="card"><img src="8.jpg"><h3>bالبرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
- 
-    </div>
+</div>
  
 </body>
-            </html> 
+</html>
