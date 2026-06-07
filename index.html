@@ -15,7 +15,7 @@
             font-family: 'Tajawal', sans-serif;
             color: #fff;
             overflow-x: hidden;
-            background-color: #1a0b00; /* لون احتياطي غامق في حال تأخر الفيديو */
+            background-color: #1a0b00; 
         }
 
         /* فيديو الخلفية الاحترافي - يغطي كل زاوية في الشاشة */
@@ -27,7 +27,7 @@
             height: 100vh;
             object-fit: cover;
             z-index: -100;
-            filter: brightness(0.35); /* تعتيم أنيق لإبراز المنتجات */
+            filter: brightness(0.35); 
         }
 
         /* التنسيق الزجاجي الشفاف الفاخر للرأس */
@@ -39,6 +39,7 @@
             padding: 40px 20px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
         }
 
         /* شعار NS ينبض بإضاءة ذهبية */
@@ -47,7 +48,7 @@
             font-size: 3.5rem;
             font-weight: bold;
             color: #d4a373;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: inline-block;
             animation: pulseGlow 2s infinite alternate;
         }
@@ -58,10 +59,12 @@
 
         /* صورة الطباخة الكرتونية المتحركة GIF */
         .chef-gif {
-            width: 140px;
+            width: 130px;
             display: block;
-            margin: 0 auto 10px auto;
-            filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(212, 163, 115, 0.5);
+            border: 2px solid #d4a373;
         }
 
         h1 { font-family: 'Amiri', serif; font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 8px #000; }
@@ -86,13 +89,19 @@
             transition: all 0.4s ease;
             width: 100%;
             max-width: 400px;
+            animation: bounceIn 1.5s infinite alternate;
         }
         .shop-btn:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 30px rgba(212, 163, 115, 0.6);
+            animation: none;
+        }
+        @keyframes bounceIn {
+            0% { transform: translateY(0); box-shadow: 0 10px 25px rgba(0,0,0,0.6); }
+            100% { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(212, 163, 115, 0.8); }
         }
 
-        /* شبكة المنتجات (مخفية حتى يتم الضغط على الزر) */
+        /* شبكة المنتجات */
         .products-grid {
             display: none; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -104,7 +113,7 @@
         }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* تصميم كروت المنتجات بالشفافية الزجاجية */
+        /* تصميم كروت المنتجات */
         .card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
@@ -143,24 +152,23 @@
 </head>
 <body>
 
-    <!-- فيديو خلفية عالي الدقة למخبز حقيقي -->
+    <!-- فيديو خلفية المطبخ -->
     <video autoplay muted loop playsinline class="bg-video">
         <source src="https://assets.mixkit.co/videos/preview/mixkit-baker-kneading-dough-in-a-bakery-43033-large.mp4" type="video/mp4">
     </video>
 
-    <!-- القالب الزجاجي العلوي -->
     <div class="header-glass">
         <!-- الشعار المتحرك -->
         <div class="ns-logo">NS</div>
         
-        <!-- الطباخة المتحركة -->
-        <img src="https://media.tenor.com/GzF4_zYQ-hMAAAAi/cooking-chef.gif" alt="طباخة" class="chef-gif">
+        <!-- طباخة متحركة (أنثى) -->
+        <img src="https://media.tenor.com/uR1dO6d_f40AAAAj/cooking-mama.gif" alt="طباخة نسرين" class="chef-gif">
         
         <h1>نسرين للحلويات</h1>
         <p class="desc">المذاق الأشهى بالسمن العربي الأصيل.. حيث تمتزج حكايات التراث بلمسة عصرية.</p>
     </div>
 
-    <!-- زر عرض المنتجات -->
+    <!-- زر عرض المنتجات الجذاب -->
     <div class="shop-box-container" id="shop-container">
         <button class="shop-btn" onclick="openShop()">تسوق أشهى الحلويات</button>
     </div>
@@ -175,22 +183,20 @@
             }
 
             function openShop() {
-                // إخفاء الزر وإظهار المنتجات بسلاسة
                 document.getElementById('shop-container').style.display = 'none';
                 document.getElementById('products-grid').style.display = 'grid';
-                // التمرير للأسفل قليلاً ليرى الزبون المنتجات
-                setTimeout(() => window.scrollBy({ top: 150, behavior: 'smooth' }), 100);
+                setTimeout(() => window.scrollBy({ top: 200, behavior: 'smooth' }), 100);
             }
         </script>
         
-        <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
-        <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
-        <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
-        <div class="card"><img src="4.jpg"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
-        <div class="card"><img src="5.jpg"><h3>الكعك</h3><a class="order-btn" href="javascript:order('الكعك')">اطلب الآن</a></div>
-        <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
-        <div class="card"><img src="7.jpg"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
-        <div class="card"><img src="8.jpg"><h3>البرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
+        <div class="card"><img src="1.jpg" alt="معمول العجوة"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
+        <div class="card"><img src="2.jpg" alt="معمول الفستق"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
+        <div class="card"><img src="3.jpg" alt="معمول الجوز"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
+        <div class="card"><img src="4.jpg" alt="البيتفور"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
+        <div class="card"><img src="5.jpg" alt="الكعك"><h3>الكعك</h3><a class="order-btn" href="javascript:order('الكعك')">اطلب الآن</a></div>
+        <div class="card"><img src="6.jpg" alt="الكوكيز"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
+        <div class="card"><img src="7.jpg" alt="الغريبة"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
+        <div class="card"><img src="8.jpg" alt="البرازق"><h3>البرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
     </div>
 
 </body>
