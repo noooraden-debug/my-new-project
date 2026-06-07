@@ -3,27 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نسرين للحلويات</title>
+    <title>نسرين للحلويات | عالم الفخامة</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* إعدادات الصفحة - خلفية متحركة فاخرة */
         body, html {
             margin: 0; padding: 0; width: 100%; min-height: 100vh;
             font-family: 'Tajawal', sans-serif; color: #fff;
-            background: linear-gradient(-45deg, #1a0b00, #3d2b1f, #1a0b00, #2c1a0f);
+            background: linear-gradient(-45deg, #1a0b00, #4a2c1a, #1a0b00, #2c1a0f);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             overflow-x: hidden;
         }
-        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes gradientBG { 
+            0% { background-position: 0% 50%; } 
+            50% { background-position: 100% 50%; } 
+            100% { background-position: 0% 50%; } 
+        }
 
-        .header-glass { padding: 40px 20px; text-align: center; }
-        .ns-logo { font-family: 'Amiri', serif; font-size: 3.5rem; color: #d4a373; font-weight: bold; margin-bottom: 10px; }
-        
-        /* صورة طباخة واحدة ثابتة */
+        .header-glass {
+            background: rgba(20, 10, 5, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid #d4a373;
+        }
+
+        .ns-logo { font-family: 'Amiri', serif; font-size: 3.5rem; color: #d4a373; font-weight: bold; }
+
+        /* تعديل الدائرة: كاريكاتير طباخة ثابت ومضمون الظهور */
         .chef-circle {
-            width: 150px; height: 150px; margin: 0 auto 20px auto;
+            width: 140px; height: 140px; margin: 15px auto;
             border-radius: 50%; border: 3px solid #d4a373;
             overflow: hidden; background-color: #fff;
+            box-shadow: 0 0 20px rgba(212,163,115,0.6);
         }
         .chef-circle img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -32,21 +45,21 @@
 
         .shop-btn {
             background: #d4a373; border: 2px solid #fff; color: #000;
-            padding: 15px 40px; font-size: 1.6rem; border-radius: 50px;
-            cursor: pointer; margin-top: 30px; font-weight: bold;
+            padding: 15px 50px; font-size: 1.6rem; border-radius: 50px;
+            cursor: pointer; font-weight: bold; margin-top: 30px;
         }
 
         .products-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1000px; margin: 0 auto; }
-        .card { background: rgba(0,0,0,0.6); border: 1px solid #d4a373; border-radius: 20px; padding: 15px; text-align: center; }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
-        .order-btn { display: block; background: #d4a373; color: black; padding: 10px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        .card { background: rgba(0,0,0,0.5); border: 1px solid #d4a373; border-radius: 20px; padding: 15px; text-align: center; }
+        .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; }
+        .order-btn { display: block; background: #d4a373; color: #000; padding: 12px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 10px; }
     </style>
 </head>
 <body>
 
     <div class="header-glass">
         <div class="ns-logo">NS</div>
-        <!-- صورة طباخة ثابتة -->
+        <!-- صورة كاريكاتير طباخة ثابتة -->
         <div class="chef-circle">
             <img src="https://img.freepik.com/free-vector/hand-drawn-chef-illustration_23-2149591465.jpg" alt="طباخة">
         </div>
@@ -59,18 +72,15 @@
         <script>
             function order(item) {
                 const siteURL = "https://noooraden-debug.github.io/my-new-project/";
-                const msg = "لقد شاهدت المنصة المتميزة ومعجب بالاصناف الموجودة فيها سلمت يداكي، أريد طلب: " + item + "، رابط المنصة: " + siteURL;
+                const msg = "لقد شاهدت المنصة المتميزة ومعجب بالاصناف الموجودة فيها سلمت يداكي! أريد طلب: " + item + "\nرابط المنصة: " + siteURL;
                 window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
             }
         </script>
+        <!-- قائمة الأصناف -->
         <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
         <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
         <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
         <div class="card"><img src="4.jpg"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
-        <div class="card"><img src="5.jpg"><h3>الكعك</h3><a class="order-btn" href="javascript:order('الكعك')">اطلب الآن</a></div>
-        <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
-        <div class="card"><img src="7.jpg"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
-        <div class="card"><img src="8.jpg"><h3>البرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
     </div>
 </body>
 </html>
