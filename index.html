@@ -8,19 +8,19 @@
  
     <style>
         body, html {
-            margin: 0; padding: 0; width: 100%; min-height: 100vh;
+            margin: 0; padding: 0; width: 100%; height: 100%;
             font-family: 'Tajawal', sans-serif; color: #fff;
-            background-size: cover;
-            background-position: center;
-            animation: bgChange 18s infinite ease-in-out;
             overflow-x: hidden;
         }
  
-        @keyframes bgChange {
-            0%   { background-image: url('https://i.imgur.com/2YNzPWq.jpg'); }
-            33%  { background-image: url('https://i.imgur.com/9xZ0RZO.jpg'); }
-            66%  { background-image: url('https://i.imgur.com/a0MZ3zY.jpg'); }
-            100% { background-image: url('https://i.imgur.com/2YNzPWq.jpg'); }
+        /* خلفية الفيديو */
+        .bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: blur(4px) brightness(60%);
         }
  
         .header-glass {
@@ -73,29 +73,51 @@
         }
     </style>
 </head>
+ 
 <body>
+ 
+    <!-- فيديو الخلفية -->
+    <video class="bg-video" autoplay muted loop>
+        <source src="https://i.postimg.cc/1zCj4WBB/kitchen.mp4" type="video/mp4">
+    </video>
+ 
     <div class="header-glass">
         <div class="ns-logo">NS</div>
+ 
         <div class="chef-circle">
-            <img src="https://i.imgur.com/7N1G8bH.png" alt="طباخة">
+            <img src="https://i.postimg.cc/7ZqjLWxB/chef.png" alt="طباخة">
         </div>
+ 
         <h1>نسرين للحلويات</h1>
         <p class="desc">المذاق الأشهى بالسمن العربي الأصيل..</p>
-        <button class="shop-btn" onclick="document.getElementById('products').style.display='grid'; this.style.display='none';">تسوق أشهى الحلويات</button>
+ 
+        <button class="shop-btn" onclick="document.getElementById('products').style.display='grid'; this.style.display='none';">
+            تسوق أشهى الحلويات
+        </button>
     </div>
  
     <div id="products" class="products-grid">
+ 
         <script>
             function order(item) {
                 const siteURL = "https://noooraden-debug.github.io/my-new-project/";
-                const msg = "لقد شاهدت المنصة المتميزة ومعجب بالاصناف الموجودة فيها سلمت يداكي! أريد طلب: " + item + "\nرابط المنصة: " + siteURL;
+                const msg = "لقد شاهدت المنصة المتميزة ومعجب بالاصناف الموجودة فيها سلمت يداكي! أريد طلب: " 
+                            + item + "\nرابط المنصة: " + siteURL;
                 window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
             }
         </script>
+ 
+        <!-- المنتجات كما طلبت (بدون تعديل) -->
         <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
         <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
         <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
         <div class="card"><img src="4.jpg"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
+  <div class="card"><img src="5.jpg"><h3>الكعك</h3><a class="order-btn" href="javascript:order('الكعك')">اطلب الآن</a></div>
+ <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
+ <div class="card"><img src="7.jpg"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
+ <div class="card"><img src="8.jpg"><h3>البرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
+ 
     </div>
+ 
 </body>
 </html> 
