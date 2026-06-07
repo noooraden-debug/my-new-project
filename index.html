@@ -6,7 +6,7 @@
     <title>نسرين للحلويات | عالم الفخامة</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* إعدادات الصفحة - ملء الشاشة بالكامل */
+        /* إعدادات الصفحة الأساسية - مع صورة خلفية فاخرة تظهر فوراً في حال تأخر الفيديو */
         body, html {
             margin: 0;
             padding: 0;
@@ -15,10 +15,18 @@
             font-family: 'Tajawal', sans-serif;
             color: #fff;
             overflow-x: hidden;
-            background-color: #1a0b00; 
+            background: #1a0b00 url('https://images.unsplash.com/photo-1555507036-ab1e4006aaeb?q=80&w=1000&auto=format&fit=crop') center/cover fixed; 
         }
 
-        /* فيديو الخلفية الاحترافي - يغطي كل زاوية في الشاشة */
+        /* طبقة تعتيم فوق صورة الخلفية لإبراز النص */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -99;
+        }
+
+        /* فيديو الخلفية الاحترافي - تم إصلاح الرابط وتقوية ظهوره */
         .bg-video {
             position: fixed;
             top: 0;
@@ -27,55 +35,56 @@
             height: 100vh;
             object-fit: cover;
             z-index: -100;
-            filter: brightness(0.35); 
+            filter: brightness(0.6);
+            opacity: 0; /* يبدأ مخفياً ثم يظهر بسلاسة */
+            transition: opacity 1.5s ease-in;
         }
 
-        /* التنسيق الزجاجي الشفاف الفاخر للرأس */
+        /* التنسيق الزجاجي الشفاف */
         .header-glass {
-            background: rgba(20, 10, 5, 0.4);
+            background: rgba(20, 10, 5, 0.5);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 2px solid rgba(212, 163, 115, 0.5);
             padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             position: relative;
         }
 
-        /* شعار NS ينبض بإضاءة ذهبية */
+        /* الشعار */
         .ns-logo {
             font-family: 'Amiri', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: bold;
             color: #d4a373;
-            margin-bottom: 10px;
-            display: inline-block;
+            margin-bottom: 5px;
+            display: block;
             animation: pulseGlow 2s infinite alternate;
         }
         @keyframes pulseGlow {
-            0% { transform: scale(1); text-shadow: 0 0 10px rgba(212, 163, 115, 0.4); }
-            100% { transform: scale(1.1); text-shadow: 0 0 25px rgba(212, 163, 115, 1); }
+            0% { transform: scale(1); text-shadow: 0 0 15px rgba(212, 163, 115, 0.4); }
+            100% { transform: scale(1.1); text-shadow: 0 0 30px rgba(212, 163, 115, 1); }
         }
 
-        /* صورة الطباخة الكرتونية المتحركة GIF */
+        /* الطباخة المتحركة - مع تأثير ظهور مميز */
         .chef-gif {
-            width: 130px;
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
             display: block;
-            margin: 0 auto 15px auto;
+            margin: 15px auto;
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(212, 163, 115, 0.5);
-            border: 2px solid #d4a373;
+            box-shadow: 0 0 20px rgba(212, 163, 115, 0.6);
+            border: 3px solid #d4a373;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        h1 { font-family: 'Amiri', serif; font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 8px #000; }
-        .desc { font-size: 1.2rem; color: #f5deb3; margin-top: 10px; text-shadow: 1px 1px 5px #000; }
+        h1 { font-family: 'Amiri', serif; font-size: 3.8rem; margin: 5px 0; text-shadow: 3px 3px 10px #000; }
+        .desc { font-size: 1.3rem; color: #f5deb3; margin-top: 10px; text-shadow: 2px 2px 8px #000; line-height: 1.5; }
 
-        /* حاوية زر التسوق */
-        .shop-box-container {
-            margin: 60px auto;
-            text-align: center;
-            padding: 0 20px;
-        }
+        /* زر التسوق */
+        .shop-box-container { margin: 60px auto; text-align: center; padding: 0 20px; }
         .shop-btn {
             background: linear-gradient(135deg, #d4a373, #8b4513);
             border: 2px solid rgba(255,255,255,0.4);
@@ -91,11 +100,7 @@
             max-width: 400px;
             animation: bounceIn 1.5s infinite alternate;
         }
-        .shop-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(212, 163, 115, 0.6);
-            animation: none;
-        }
+        .shop-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(212, 163, 115, 0.8); animation: none; }
         @keyframes bounceIn {
             0% { transform: translateY(0); box-shadow: 0 10px 25px rgba(0,0,0,0.6); }
             100% { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(212, 163, 115, 0.8); }
@@ -111,82 +116,58 @@
             margin: 0 auto 50px auto;
             animation: fadeIn 1s ease-in-out;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* تصميم كروت المنتجات */
-        .card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            transition: all 0.4s ease;
-        }
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            border: 2px solid rgba(212, 163, 115, 0.3);
-        }
-        .card h3 { font-family: 'Amiri', serif; font-size: 1.8rem; margin: 15px 0; color: #fff; text-shadow: 1px 1px 5px #000; }
-        
-        .order-btn {
-            display: inline-block;
-            background: #d4a373;
-            color: #1a1a1a;
-            padding: 12px 0;
-            width: 100%;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.3rem;
-            transition: background 0.3s ease;
-        }
-        .order-btn:hover { background: #fff; }
+        .card { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(212, 163, 115, 0.4); border-radius: 25px; padding: 20px; text-align: center; }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; border: 2px solid rgba(212, 163, 115, 0.3); }
+        .card h3 { font-family: 'Amiri', serif; font-size: 1.8rem; margin: 15px 0; color: #fff; }
+        .order-btn { display: inline-block; background: #d4a373; color: #1a1a1a; padding: 12px 0; width: 100%; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.3rem; }
     </style>
 </head>
 <body>
 
-    <!-- فيديو خلفية المطبخ -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-baker-kneading-dough-in-a-bakery-43033-large.mp4" type="video/mp4">
+    <div class="overlay"></div>
+
+    <!-- فيديو خلفية المطبخ برابط آمن من منصة Pixabay المضمونة -->
+    <video id="bgVid" autoplay muted loop playsinline class="bg-video" oncanplay="this.style.opacity='1'">
+        <source src="https://cdn.pixabay.com/video/2020/05/21/40004-424684948_tiny.mp4" type="video/mp4">
     </video>
 
     <div class="header-glass">
-        <!-- الشعار المتحرك -->
+        <!-- الشعار في الأعلى -->
         <div class="ns-logo">NS</div>
         
-        <!-- طباخة متحركة (أنثى) -->
-        <img src="https://media.tenor.com/uR1dO6d_f40AAAAj/cooking-mama.gif" alt="طباخة نسرين" class="chef-gif">
+        <!-- طباخة متحركة برابط آمن ومباشر - مع صورة احتياطية (onerror) لضمان عدم ظهور دائرة فارغة أبداً -->
+        <img src="https://media.giphy.com/media/26n6R5HOYPbekK0YE/giphy.gif" alt="طباخة نسرين" class="chef-gif" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3224/3224135.png'">
         
         <h1>نسرين للحلويات</h1>
-        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل.. حيث تمتزج حكايات التراث بلمسة عصرية.</p>
+        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل..<br>حيث تمتزج حكايات التراث بلمسة عصرية.</p>
     </div>
 
-    <!-- زر عرض المنتجات الجذاب -->
+    <!-- زر التسوق -->
     <div class="shop-box-container" id="shop-container">
         <button class="shop-btn" onclick="openShop()">تسوق أشهى الحلويات</button>
     </div>
 
-    <!-- قائمة الحلويات -->
+    <!-- قائمة المنتجات -->
     <div class="products-grid" id="products-grid">
         <script>
             const siteURL = "https://noooraden-debug.github.io/my-new-project/";
             function order(item) {
-                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + "\nرابط المنصة: " + siteURL;
+                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + "\nالرابط: " + siteURL;
                 window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
             }
 
             function openShop() {
                 document.getElementById('shop-container').style.display = 'none';
                 document.getElementById('products-grid').style.display = 'grid';
-                setTimeout(() => window.scrollBy({ top: 200, behavior: 'smooth' }), 100);
+                setTimeout(() => window.scrollBy({ top: 300, behavior: 'smooth' }), 100);
             }
+
+            // ضمان تشغيل الفيديو على الهواتف
+            document.addEventListener('click', function() {
+                document.getElementById('bgVid').play();
+            });
         </script>
         
         <div class="card"><img src="1.jpg" alt="معمول العجوة"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
@@ -201,3 +182,4 @@
 
 </body>
 </html>
+ 
