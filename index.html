@@ -2,51 +2,54 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>نسرين للحلويات | منصة فاخرة</title>
+    <title>نسرين للحلويات | المذاق الأشهى</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;700&display=swap');
         
-        /* الخلفية المتحركة (فيديو المطبخ) */
-        body, html { margin: 0; padding: 0; height: 100%; overflow-x: hidden; font-family: 'Tajawal', sans-serif; }
-        .bg-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -1; object-fit: cover; filter: brightness(0.4); }
+        body {
+            margin: 0; padding: 0;
+            background: radial-gradient(circle, #5d4037, #3e2723, #1b1b1b);
+            background-size: 400% 400%;
+            animation: moveGradient 10s ease infinite;
+            font-family: 'Tajawal', sans-serif; text-align: center; color: #fff;
+        }
+        @keyframes moveGradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
         
-        .header { padding: 60px 20px; color: white; text-align: center; }
-        h1 { font-family: 'Amiri', serif; font-size: 4rem; display: flex; justify-content: center; align-items: center; gap: 20px; text-shadow: 2px 2px 10px #000; }
+        .hero { padding: 60px 20px; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
+        h1 { font-family: 'Amiri', serif; font-size: 3.5rem; margin-bottom: 10px; }
+        .desc { font-size: 1.3rem; color: #d4a373; margin-bottom: 20px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; padding: 40px; }
-        .card { background: rgba(255,255,255,0.95); padding: 15px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: 0.5s; text-align: center; }
-        .card:hover { transform: translateY(-20px) scale(1.02); }
-        .card img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; border: 4px solid #c69c6d; }
-        h3 { font-family: 'Amiri', serif; font-size: 2rem; color: #5d4037; margin: 20px 0; }
-        .btn { display: block; background: #5d4037; color: white; padding: 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.3rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; padding: 40px; }
+        .card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 30px; border: 2px solid #d4a373; transition: 0.4s; }
+        .card:hover { transform: translateY(-15px); background: rgba(212,163,115,0.1); }
+        .card img { width: 100%; height: 320px; object-fit: cover; border-radius: 20px; }
+        .btn { display: block; background: #d4a373; color: #2c1e1a; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; margin-top: 15px; }
     </style>
 </head>
 <body>
-    <!-- فيديو خلفية المطبخ -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="https://player.vimeo.com/external/394749439.sd.mp4?s=f520f81d11b3d683701625906f0e21016629c490&profile_id=164" type="video/mp4">
-    </video>
-
-    <div class="header">
-        <h1><span>👩‍🍳</span> نسرين للحلويات</h1>
-        <p style="font-size: 1.5rem;">المذاق الأشهى بالسمن العربي الأصيل</p>
+    <div class="hero">
+        <h1>نسرين للحلويات 👩‍🍳</h1>
+        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل.. حيث تمتزج حكايات التراث بلمسة عصرية.</p>
     </div>
     
     <div class="grid">
-        <!-- تم دمج العبارة في الرابط -->
         <script>
-            const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: ";
-            function getLink(item) { return "https://wa.me/963982344943?text=" + encodeURIComponent(msg + item); }
+            const siteURL = "رابط_منصتك_هنا"; // ضعي رابط موقعك على GitHub هنا
+            function order(item) {
+                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + " الرابط: " + siteURL;
+                window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
+            }
         </script>
         
-        <div class="card"><img src="1.jpg"><h3 onclick="window.location.href=getLink('معمول العجوة')">معمول العجوة</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('معمول العجوة')">اطلب الآن</a></div>
-        <div class="card"><img src="2.jpg"><h3 onclick="window.location.href=getLink('معمول الفستق')">معمول الفستق</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('معمول الفستق')">اطلب الآن</a></div>
-        <div class="card"><img src="3.jpg"><h3 onclick="window.location.href=getLink('معمول الجوز')">معمول الجوز</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('معمول الجوز')">اطلب الآن</a></div>
-        <div class="card"><img src="4.jpg"><h3 onclick="window.location.href=getLink('البيتفور')">البيتفور</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('البيتفور')">اطلب الآن</a></div>
-        <div class="card"><img src="5.jpg"><h3 onclick="window.location.href=getLink('الكعك')">الكعك</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('الكعك')">اطلب الآن</a></div>
-        <div class="card"><img src="6.jpg"><h3 onclick="window.location.href=getLink('الكوكيز')">الكوكيز بالشوكولاته</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('الكوكيز')">اطلب الآن</a></div>
-        <div class="card"><img src="7.jpg"><h3 onclick="window.location.href=getLink('الغريبة')">الغريبة</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('الغريبة')">اطلب الآن</a></div>
-        <div class="card"><img src="8.jpg"><h3 onclick="window.location.href=getLink('البرازق')">البرازق</h3><a class="btn" href="javascript:void(0)" onclick="window.location.href=getLink('البرازق')">اطلب الآن</a></div>
+        <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
+        <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
+        <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
+        <div class="card"><img src="4.jpg"><h3>البيتفور</h3><a class="btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
+        <div class="card"><img src="5.jpg"><h3>الكعك</h3><a class="btn" href="javascript:order('الكعك')">اطلب الآن</a></div>
+        <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><a class="btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
+        <div class="card"><img src="7.jpg"><h3>الغريبة</h3><a class="btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
+        <div class="card"><img src="8.jpg"><h3>البرازق</h3><a class="btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
     </div>
 </body>
 </html>
+ 
