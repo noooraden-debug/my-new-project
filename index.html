@@ -2,35 +2,47 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>The Smart Series | سيمفونية الحلويات الشرقية</title>
+    <title>نسرين للحلويات | المذاق الأشهى</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;700&display=swap');
-        body { background: linear-gradient(135deg, #fdf6e3, #f4e1d2); font-family: 'Tajawal', sans-serif; text-align: center; padding: 40px 20px; margin: 0; }
-        h1 { font-family: 'Amiri', serif; font-size: 3.5rem; color: #5d4037; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); margin-bottom: 10px; }
-        .subtitle { font-size: 1.2rem; color: #8d6e63; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 25px; transition: transform 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .card:hover { transform: translateY(-10px); }
-        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; border: 3px solid #d4a373; }
-        h3 { color: #5d4037; margin: 15px 0 5px; }
-        p { color: #666; font-size: 0.95rem; margin-bottom: 15px; }
-        .btn { display: inline-block; background: #8d6e63; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: #5d4037; }
+        body { 
+            margin: 0; padding: 0;
+            background: linear-gradient(45deg, #fdf6e3, #e5d3b3, #d4a373);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Tajawal', sans-serif; text-align: center;
+        }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        
+        .header { padding: 60px 20px; }
+        h1 { font-family: 'Amiri', serif; font-size: 4.5rem; color: #3e2723; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); margin: 0; }
+        .subtitle { font-size: 1.8rem; color: #5d4037; font-weight: bold; margin-top: 10px; }
+        .desc { font-size: 1.2rem; color: #4e342e; max-width: 600px; margin: 20px auto; line-height: 1.6; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 20px; }
+        .card { background: white; padding: 25px; border-radius: 30px; box-shadow: 0 15px 30px rgba(0,0,0,0.2); border: 2px solid #d7ccc8; }
+        .card img { width: 100%; height: 280px; object-fit: cover; border-radius: 20px; }
+        h3 { color: #3e2723; margin-top: 20px; }
+        .btn { display: inline-block; background: #6d4c41; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: 0.3s; }
+        .btn:hover { background: #3e2723; transform: scale(1.05); }
     </style>
 </head>
 <body>
-    <h1>The Smart Series</h1>
-    <p class="subtitle">حيث تلتقي الأصالة بالفخامة.. حلويات صُنعت بحب</p>
+    <div class="header">
+        <h1>✧ نسرين للحلويات ✧</h1>
+        <p class="subtitle">المذاق الأشهى بالسمن العربي الأصيل</p>
+        <p class="desc">نأخذكم في رحلة إلى عالم النكهات الفاخرة؛ حيث تمتزج حكايات التراث السوري بلمسة عصرية، لنقدم لكم قطعاً تذوب عشقاً في كل قضمة.</p>
+    </div>
+    
     <div class="grid">
-        <!-- المعمول -->
-        <div class="card"><img src="https://i.postimg.cc/9XJk3P5L/493680.jpg" alt="معمول"><p>معمول العجوة الذهبي</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
-        <div class="card"><img src="https://i.postimg.cc/k47ZJ0V5/493679.jpg" alt="معمول"><p>معمول الفستق الحلبي</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
-        <div class="card"><img src="https://i.postimg.cc/Qx77Y5Bq/493681.jpg" alt="معمول"><p>معمول الجوز الملكي</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
-        <div class="card"><img src="https://i.postimg.cc/85n433hR/493682.jpg" alt="بيتفور"><p>تشكيلة البيتفور الفاخرة</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
-        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493683.jpg" alt="كعك"><p>كعك المطبخ التقليدي</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
-        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493684.jpg" alt="كوكيز"><p>كوكيز الشوكولاتة الغني</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
-        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493685.jpg" alt="برازق"><p>برازق شامية مقرمشة</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
-        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493686.jpg" alt="غريبة"><p>غريبة ناعمة</p><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/9XJk3P5L/493680.jpg" alt="معمول العجوة"><h3>معمول العجوة</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/k47ZJ0V5/493679.jpg" alt="معمول الفستق"><h3>معمول الفستق</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/Qx77Y5Bq/493681.jpg" alt="معمول الجوز"><h3>معمول الجوز</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/85n433hR/493682.jpg" alt="بيتفور"><h3>بيتفور</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493683.jpg" alt="كعك"><h3>كعك</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493684.jpg" alt="كويكز"><h3>كويكز</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493685.jpg" alt="برازق"><h3>برازق</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
+        <div class="card"><img src="https://i.postimg.cc/8F465NXk/493686.jpg" alt="غريبة"><h3>غريبة</h3><a class="btn" href="https://wa.me/963982344943">اطلب الآن</a></div>
     </div>
 </body>
 </html>
