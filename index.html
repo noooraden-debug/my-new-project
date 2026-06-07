@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نسرين للحلويات | عالم الفخامة</title>
+    <title>أم عمر للحلويات | عالم الفخامة</title>
  
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
  
@@ -84,22 +84,28 @@
             color: #f5deb3;
         }
  
+        /* زر تسوق شفاف + تأثيرات فاخرة */
         .shop-btn {
-            background: #d4a373;
-            border: 2px solid #fff;
-            color: #000;
+            background: rgba(255,255,255,0.18);
+            border: 2px solid rgba(255,255,255,0.4);
+            color: #fff;
             padding: 15px 45px;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             border-radius: 40px;
             cursor: pointer;
             font-weight: bold;
             margin-top: 25px;
-            transition: 0.3s;
+            backdrop-filter: blur(6px);
+            transition: 0.4s;
         }
  
         .shop-btn:hover {
-            transform: scale(1.06);
-            background: #e3b485;
+            background: rgba(255,255,255,0.28);
+            transform: scale(1.08);
+            box-shadow: 
+                0 0 18px rgba(255,215,0,0.9),
+                0 0 30px rgba(255,140,0,0.7),
+                0 0 45px rgba(255,215,0,0.6);
         }
  
         /* شبكة المنتجات */
@@ -161,14 +167,13 @@
     </video>
  
     <div class="header-glass">
-        <div class="ns-logo">NS</div>
- 
+        <div class="ns-logo">AO</div>
         <div class="chef-circle">
             <img src="chef.jpg" alt="طباخة">
         </div>
  
-        <h1>نسرين للحلويات</h1>
-        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل..</p>
+        <h1>أم عمر للحلويات</h1>
+        <p class="desc">المذاق الأشهى بأجود الأنواع وأرخص الأسعار</p>
  
         <button class="shop-btn" onclick="document.getElementById('products').style.display='grid'; this.style.display='none';">
             تسوق أشهى الحلويات
@@ -176,18 +181,17 @@
     </div>
  
     <div id="products">
- 
         <script>
             function order(item) {
                 const siteURL = "https://noooraden-debug.github.io/my-new-project/";
                 const msg = 
 `مرحبا 🌸
-رأيت منصة نسرين للحلويات وأعجبتني كثيراً!
+رأيت منصة أم عمر للحلويات وأعجبتني كثيراً!
 وأرغب بطلب: ${item}
  
 رابط المنصة:
 ${siteURL}`;
-                
+ 
                 window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
             }
         </script>
@@ -197,12 +201,12 @@ ${siteURL}`;
         <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
         <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
         <div class="card"><img src="4.jpg"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
-        <div class="card"><img src="5.jpg"><h3>الكعك</h3><a class="order-btn" href="javascript:order('الكعك')">اطلب الآن</a></div>
+        <div class="card"><img src="5.jpg"><h3>كليجه</h3><a class="order-btn" href="javascript:order('كليجه')">اطلب الآن</a></div>
         <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
         <div class="card"><img src="7.jpg"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
-        <div class="card"><img src="8.jpg"><h3>البرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
+        <div class="card"><img src="8.jpg"><h3>bالبرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
  
     </div>
  
 </body>
-</html> 
+            </html> 
