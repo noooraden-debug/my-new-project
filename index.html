@@ -2,134 +2,71 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نسرين للحلويات</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; }
+        body { 
+            margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; color: #fff;
+            /* خلفية ذهبية فاخرة بديلة للفيديو لضمان الفخامة وعدم الفراغ */
+            background: radial-gradient(circle, #3d2b1f 0%, #1a0b00 100%);
+            min-height: 100vh; text-align: center;
+        }
+
+        .header-section { padding: 40px 20px; }
         
-        body, html {
-            margin: 0; padding: 0; width: 100%; min-height: 100vh;
-            font-family: 'Tajawal', sans-serif; color: #fff;
-            background-color: #1a0b00; overflow-x: hidden;
-        }
+        .ns-logo { font-family: 'Amiri', serif; font-size: 3.5rem; color: #d4a373; font-weight: bold; margin-bottom: 10px; }
 
-        /* 1. فيديو المطبخ والحلويات: يغطي الشاشة كاملة بالخلفية */
-        .bg-video {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            object-fit: cover; z-index: -100;
-            filter: brightness(0.35); pointer-events: none;
-        }
-
-        /* 2. الحاوية العلوية الزجاجية */
-        .header-glass {
-            position: relative; background: rgba(20, 10, 5, 0.45);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            border-bottom: 2px solid #d4a373; padding: 40px 20px 20px 20px;
-            text-align: center; z-index: 10;
-        }
-
-        /* الشعار */
-        .ns-logo {
-            font-family: 'Amiri', serif; font-size: 3.5rem; font-weight: bold;
-            color: #d4a373; margin-bottom: 15px; display: block;
-            text-shadow: 0 0 15px rgba(212, 163, 115, 0.8);
-        }
-
-        /* 3. الدائرة التي تحتوي GIF الطباخة المبتسمة حصراً */
+        /* الدائرة الثابتة المضمونة */
         .chef-circle {
-            width: 140px; height: 140px; margin: 0 auto 15px auto;
-            border-radius: 50%; overflow: hidden;
-            border: 3px solid #d4a373; box-shadow: 0 0 20px rgba(212,163,115,0.6);
-            background-color: #fff; display: flex; justify-content: center; align-items: center;
+            width: 140px; height: 140px; margin: 0 auto 20px auto;
+            border-radius: 50%; border: 3px solid #d4a373;
+            overflow: hidden; background-color: #3d2b1f;
         }
-        .chef-circle img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
+        .chef-circle img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* النصوص */
-        h1 { font-family: 'Amiri', serif; font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 5px #000; }
-        .desc { font-size: 1.2rem; color: #f5deb3; margin-top: 10px; line-height: 1.6; text-shadow: 1px 1px 4px #000; }
+        h1 { font-family: 'Amiri', serif; font-size: 2.8rem; margin: 0; }
+        .desc { font-size: 1.2rem; color: #f5deb3; margin-top: 10px; }
 
-        /* زر التسوق */
-        .shop-box-container { margin: 40px auto; text-align: center; padding: 0 20px; position: relative; z-index: 10; }
         .shop-btn {
-            background: linear-gradient(135deg, #d4a373, #8b4513); border: 2px solid rgba(255,255,255,0.3);
-            color: white; padding: 15px 40px; font-size: 1.6rem; font-family: 'Amiri', serif;
-            border-radius: 50px; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            transition: transform 0.3s; width: 100%; max-width: 350px;
-            animation: pulse 2s infinite;
+            background: linear-gradient(135deg, #d4a373, #8b4513);
+            border: 2px solid rgba(255,255,255,0.3); color: white;
+            padding: 15px 40px; font-size: 1.5rem; font-family: 'Amiri', serif;
+            border-radius: 50px; cursor: pointer; margin-top: 30px;
         }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* شبكة المنتجات */
-        .products-grid {
-            display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
-            padding: 20px; max-width: 1200px; margin: 0 auto 50px auto; position: relative; z-index: 10;
-        }
-        .card {
-            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid #d4a373; border-radius: 20px; padding: 15px; text-align: center;
-        }
-        .card img {
-            width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 2px solid rgba(212,163,115,0.4);
-        }
-        .card h3 { font-family: 'Amiri', serif; font-size: 1.6rem; margin: 15px 0; color: #fff; }
-        .order-btn {
-            display: block; background: #d4a373; color: #000; padding: 12px 0; border-radius: 30px;
-            text-decoration: none; font-weight: bold; font-size: 1.2rem;
-        }
+        .products-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+        .card { background: rgba(255, 255, 255, 0.05); border: 1px solid #d4a373; border-radius: 20px; padding: 15px; }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .order-btn { display: block; background: #d4a373; color: black; padding: 10px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <!-- فيديو خلفية مطبخ حقيقي يغطي الشاشة كاملة (رابط مستقر جداً وموثوق) -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-making-a-delicious-cake-with-chocolate-and-cream-43036-large.mp4" type="video/mp4">
-    </video>
-
-    <div class="header-glass">
-        <!-- الشعار -->
+    <div class="header-section">
         <div class="ns-logo">NS</div>
         
-        <!-- الدائرة التي تحتوي على صورة كاريكاتير الطباخة המبتسمة (رابط GIF آمن ومباشر) -->
+        <!-- صورة ثابتة مضمونة للطباخة -->
         <div class="chef-circle">
-            <img src="https://media.tenor.com/DHK_dYqYx7kAAAAi/baking-cake.gif" alt="طباخة مبتسمة">
+            <img src="https://cdn-icons-png.flaticon.com/512/2821/2821637.png" alt="طباخة">
         </div>
         
         <h1>نسرين للحلويات</h1>
-        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل..<br>حيث تمتزج حكايات التراث بلمسة عصرية.</p>
+        <p class="desc">المذاق الأشهى بالسمن العربي الأصيل..</p>
     </div>
 
-    <!-- زر التسوق -->
-    <div class="shop-box-container" id="shop-container">
-        <button class="shop-btn" onclick="openShop()">تسوق أشهى الحلويات</button>
-    </div>
+    <button class="shop-btn" onclick="document.getElementById('products').style.display='grid'; this.style.display='none';">تسوق أشهى الحلويات</button>
 
-    <!-- قائمة الحلويات -->
-    <div class="products-grid" id="products-grid">
+    <div id="products" class="products-grid">
         <script>
             const siteURL = "https://noooraden-debug.github.io/my-new-project/";
             function order(item) {
-                const msg = "يالها من منصة فاخرة تحتوي أصناف الحلويات الشهية، سلمت يداكي! أريد طلب: " + item + "\nالرابط: " + siteURL;
-                window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
-            }
-
-            function openShop() {
-                document.getElementById('shop-container').style.display = 'none';
-                document.getElementById('products-grid').style.display = 'grid';
-                setTimeout(() => window.scrollBy({ top: 300, behavior: 'smooth' }), 150);
+                window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent("أريد طلب: " + item);
             }
         </script>
-        
-        <div class="card"><img src="1.jpg" alt="معمول العجوة"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
-        <div class="card"><img src="2.jpg" alt="معمول الفستق"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
-        <div class="card"><img src="3.jpg" alt="معمول الجوز"><h3>معمول الجوز</h3><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
-        <div class="card"><img src="4.jpg" alt="البيتفور"><h3>البيتفور</h3><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
-        <div class="card"><img src="5.jpg" alt="الكعك"><h3>الكعك</h3><a class="order-btn" href="javascript:order('الكعك')">اطلب الآن</a></div>
-        <div class="card"><img src="6.jpg" alt="الكوكيز"><h3>الكوكيز</h3><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
-        <div class="card"><img src="7.jpg" alt="الغريبة"><h3>الغريبة</h3><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
-        <div class="card"><img src="8.jpg" alt="البرازق"><h3>البرازق</h3><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
+        <!-- كروت المنتجات -->
+        <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
+        <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
     </div>
 
 </body>
