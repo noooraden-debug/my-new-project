@@ -6,9 +6,28 @@
 <title>أم عمر للحلويات</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    body, html { margin: 0; padding: 0; width: 100%; color: #fff; font-family: 'Tajawal', sans-serif; overflow-x: hidden; }
+    /* التعديل الأول: إضافة خلفية داكنة للـ body ومنع الفراغ */
+    body, html { 
+        margin: 0; 
+        padding: 0; 
+        width: 100%; 
+        min-height: 100dvh; 
+        background-color: #1a1a1a; 
+        color: #fff; 
+        font-family: 'Tajawal', sans-serif; 
+        overflow-x: hidden; 
+    }
     
-    .bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+    /* التعديل الثاني: استخدام dvh لضمان تغطية الفيديو للشاشة ديناميكياً */
+    .bg-video { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100dvh; 
+        object-fit: cover; 
+        z-index: -1; 
+    }
 
     .header-section { padding: 60px 20px; text-align: center; }
 
@@ -27,17 +46,13 @@
     
     .order-btn { display: block; background: #25D366; color: #fff; padding: 12px; border-radius: 15px; text-decoration: none; font-weight: bold; }
 
-    /* تحسين الزر العائم */
     .whatsapp-float { 
         position: fixed; bottom: 30px; left: 30px; z-index: 100; 
         width: 60px; height: 60px; border-radius: 50%; 
         overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        background-color: #25D366; /* لون خلفية أخضر لتغطية أي فراغات */
+        background-color: #25D366;
     }
-    .whatsapp-float img { 
-        width: 100%; height: 100%; 
-        object-fit: cover; /* سيقوم بقص الزوايا البيضاء لملء الدائرة */
-    }
+    .whatsapp-float img { width: 100%; height: 100%; object-fit: cover; }
 
     .top-btn { position: fixed; bottom: 30px; right: 30px; z-index: 100; background: #A67C00; border: none; padding: 15px; border-radius: 50%; color: white; cursor: pointer; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 </style>
@@ -55,28 +70,23 @@
 <div id="products">
     <script>
         function order(item) {
-            const msg = `مرحبا شيف أم عمر سلمت يداكي 🌸
-رأيت منصة أم عمر للحلويات: https://noooraden-debug.github.io/my-new-project/ وأعجبتني! الاصناف جدا
-أرغب بطلب: ${item}`;
+            const msg = `مرحبا شيف أم عمر سلمت يداكي 🌸\nرأيت منصة أم عمر للحلويات: https://noooraden-debug.github.io/my-new-project/ وأعجبتني! أرغب بطلب: ${item}`;
             window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
         }
     </script>
-
-    <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><p>أجود أنواع التمر المعجون بلمسة من السمن العربي الأصيل داخل عجينة هشة تذوب في الفم.</p><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
-    <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><p>محشو بحبات الفستق الحلبي الفاخر والمحمص، مزيج مثالي بين القرمشة والنكهة الغنية.</p><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
-    <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><p>نكهة الجوز البلدي القوية مع لمسة من القرفة، خيار عشاق الطعم التقليدي الأصيل.</p><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
-    <div class="card"><img src="4.jpg"><h3>البيتفور</h3><p>قطع هشة ومزينة بأجود أنواع الشوكولاتة، مثالية للضيافة الراقية بجانب فنجان القهوة.</p><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
-    <div class="card"><img src="5.jpg"><h3>كليجه</h3><p>معجنات غنية بنكهة التوابل الشرقية والتمر، طعم يعيد ذكريات الزمن الجميل.</p><a class="order-btn" href="javascript:order('كليجه')">اطلب الآن</a></div>
-    <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><p>كوكيز مقرمشة من الأطراف وطرية من الداخل، محشوة بقطع الشوكولاتة الذائبة.</p><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
-    <div class="card"><img src="7.jpg"><h3>الغريبة</h3><p>خفيفة كالغيمة، تذوب فور ملامستها للسان، محضرة بالسمن الحيواني النقي.</p><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
-    <div class="card"><img src="8.jpg"><h3>البرازق</h3><p>رقائق ذهبية مقرمشة مغطاة بطبقة كثيفة من السمسم المحمص والعسل الطبيعي.</p><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
+    <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><p>أجود أنواع التمر المعجون بلمسة من السمن العربي الأصيل.</p><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
+    <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><p>محشو بحبات الفستق الحلبي الفاخر والمحمص.</p><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
+    <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><p>نكهة الجوز البلدي القوية مع لمسة من القرفة.</p><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
+    <div class="card"><img src="4.jpg"><h3>البيتفور</h3><p>قطع هشة ومزينة بأجود أنواع الشوكولاتة.</p><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
+    <div class="card"><img src="5.jpg"><h3>كليجه</h3><p>معجنات غنية بنكهة التوابل الشرقية والتمر.</p><a class="order-btn" href="javascript:order('كليجه')">اطلب الآن</a></div>
+    <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><p>كوكيز مقرمشة من الأطراف وطرية من الداخل.</p><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
+    <div class="card"><img src="7.jpg"><h3>الغريبة</h3><p>خفيفة كالغيمة، محضرة بالسمن الحيواني النقي.</p><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
+    <div class="card"><img src="8.jpg"><h3>البرازق</h3><p>رقائق ذهبية مقرمشة مغطاة بالسمسم المحمص والعسل.</p><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
 </div>
 
-<a href="https://wa.me/963982344943?text=مرحبا شيف أم عمر سلمت يداكي 🌸 رأيت منصة أم عمر للحلويات: https://noooraden-debug.github.io/my-new-project/ وأعجبتني! الاصناف جدا" class="whatsapp-float">
-    <img src="رمز واتساب.jfif" alt="واتساب">
-</a>
-
+<a href="https://wa.me/963982344943" class="whatsapp-float"><img src="رمز واتساب.jfif" alt="واتساب"></a>
 <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️</button>
 
 </body>
 </html>
+ 
