@@ -25,7 +25,6 @@
         object-fit: cover; 
         z-index: 0; 
         will-change: transform;
-        /* هذا السطر يمنع الفيديو من التفاعل مع أي نقرة */
         pointer-events: none; 
     }
 
@@ -88,8 +87,15 @@
     </div>
 </div>
 
-<a href="https://wa.me/963982344943" class="whatsapp-float"><img src="رمز واتساب.jfif" alt="واتساب"></a>
+<script>
+    // الرسالة المخصصة للزر العائم
+    const floatMsg = "مرحبا شيف أم عمر سلمت يداكي، لقد تصفحت المنصة المميزة وأعجبت بالاصناف الفريدة المميزة بداخلها، أرغب بالاستفسار عن الأسعار ووقت التسليم. \nالرابط: https://noooraden-debug.github.io/my-new-project/";
+    const whatsappLink = "https://wa.me/963982344943?text=" + encodeURIComponent(floatMsg);
+</script>
+
+<a href="#" onclick="window.location.href=whatsappLink" class="whatsapp-float"><img src="رمز واتساب.jfif" alt="واتساب"></a>
 <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️</button>
 
 </body>
-</html> 
+</html>
+ 
