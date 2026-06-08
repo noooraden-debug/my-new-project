@@ -93,6 +93,17 @@
     const whatsappLink = "https://wa.me/963982344943?text=" + encodeURIComponent(floatMsg);
 </script>
 
+<!-- سكربت عداد الزوار اليومي -->
+<script type="module">
+    import { getDatabase, ref, runTransaction } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+    const db = getDatabase(); 
+    const today = new Date().toISOString().split('T')[0];
+    const dailyRef = ref(db, 'site_stats/daily/' + today);
+    runTransaction(dailyRef, (currentCount) => {
+        return (currentCount || 0) + 1;
+    });
+</script>
+
 <a href="#" onclick="window.location.href=whatsappLink" class="whatsapp-float"><img src="رمز واتساب.jfif" alt="واتساب"></a>
 <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️</button>
 
