@@ -6,19 +6,17 @@
 <title>أم عمر للحلويات</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    /* تم تعيين لون خلفية داكن لتمويه أي فراغ يظهر أثناء التمرير */
     body, html { 
         margin: 0; 
         padding: 0; 
         width: 100%; 
-        height: 100%; 
-        background-color: #1a1a1a; 
+        background-color: #1a1a1a; /* لون داكن للتمويه */
         color: #fff; 
         font-family: 'Tajawal', sans-serif; 
         overflow-x: hidden; 
     }
     
-    /* تثبيت الفيديو واستخدام will-change لتحسين الأداء أثناء التمرير */
+    /* الفيديو في الطبقة الأساسية */
     .bg-video { 
         position: fixed; 
         top: 0; 
@@ -26,8 +24,14 @@
         width: 100%; 
         height: 100%; 
         object-fit: cover; 
-        z-index: -1; 
+        z-index: 0; 
         will-change: transform;
+    }
+
+    /* المحتوى في طبقة أعلى ليظهر فوق الفيديو */
+    .content-wrapper {
+        position: relative;
+        z-index: 1;
     }
 
     .header-section { padding: 60px 20px; text-align: center; }
@@ -59,27 +63,29 @@
     <source src="kitchen.mp4" type="video/mp4">
 </video>
 
-<div class="header-section">
-    <div class="chef-circle"><img src="chef.jpg"></div>
-    <h1 class="hero-title">أم عمـــر للحلويــــات</h1>
-    <p class="welcome-text">تراثٌ من الأصالة.. يذوبُ في فمِك بكلّ حبّ.</p>
-</div>
+<div class="content-wrapper">
+    <div class="header-section">
+        <div class="chef-circle"><img src="chef.jpg"></div>
+        <h1 class="hero-title">أم عمـــر للحلويــــات</h1>
+        <p class="welcome-text">تراثٌ من الأصالة.. يذوبُ في فمِك بكلّ حبّ.</p>
+    </div>
 
-<div id="products">
-    <script>
-        function order(item) {
-            const msg = `مرحبا شيف أم عمر سلمت يداكي 🌸\nرأيت منصة أم عمر للحلويات: https://noooraden-debug.github.io/my-new-project/ وأعجبتني! أرغب بطلب: ${item}`;
-            window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
-        }
-    </script>
-    <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><p>أجود أنواع التمر المعجون بلمسة من السمن العربي الأصيل.</p><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
-    <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><p>محشو بحبات الفستق الحلبي الفاخر والمحمص.</p><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
-    <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><p>نكهة الجوز البلدي القوية مع لمسة من القرفة.</p><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
-    <div class="card"><img src="4.jpg"><h3>البيتفور</h3><p>قطع هشة ومزينة بأجود أنواع الشوكولاتة.</p><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
-    <div class="card"><img src="5.jpg"><h3>كليجه</h3><p>معجنات غنية بنكهة التوابل الشرقية والتمر.</p><a class="order-btn" href="javascript:order('كليجه')">اطلب الآن</a></div>
-    <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><p>كوكيز مقرمشة من الأطراف وطرية من الداخل.</p><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
-    <div class="card"><img src="7.jpg"><h3>الغريبة</h3><p>خفيفة كالغيمة، محضرة بالسمن الحيواني النقي.</p><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
-    <div class="card"><img src="8.jpg"><h3>البرازق</h3><p>رقائق ذهبية مقرمشة مغطاة بالسمسم المحمص والعسل.</p><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
+    <div id="products">
+        <script>
+            function order(item) {
+                const msg = `مرحبا شيف أم عمر سلمت يداكي 🌸\nرأيت منصة أم عمر للحلويات: https://noooraden-debug.github.io/my-new-project/ وأعجبتني! أرغب بطلب: ${item}`;
+                window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
+            }
+        </script>
+        <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><p>أجود أنواع التمر المعجون بلمسة من السمن العربي الأصيل.</p><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
+        <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><p>محشو بحبات الفستق الحلبي الفاخر والمحمص.</p><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
+        <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><p>نكهة الجوز البلدي القوية مع لمسة من القرفة.</p><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
+        <div class="card"><img src="4.jpg"><h3>البيتفور</h3><p>قطع هشة ومزينة بأجود أنواع الشوكولاتة.</p><a class="order-btn" href="javascript:order('البيتفور')">اطلب الآن</a></div>
+        <div class="card"><img src="5.jpg"><h3>كليجه</h3><p>معجنات غنية بنكهة التوابل الشرقية والتمر.</p><a class="order-btn" href="javascript:order('كليجه')">اطلب الآن</a></div>
+        <div class="card"><img src="6.jpg"><h3>الكوكيز</h3><p>كوكيز مقرمشة من الأطراف وطرية من الداخل.</p><a class="order-btn" href="javascript:order('الكوكيز')">اطلب الآن</a></div>
+        <div class="card"><img src="7.jpg"><h3>الغريبة</h3><p>خفيفة كالغيمة، محضرة بالسمن الحيواني النقي.</p><a class="order-btn" href="javascript:order('الغريبة')">اطلب الآن</a></div>
+        <div class="card"><img src="8.jpg"><h3>البرازق</h3><p>رقائق ذهبية مقرمشة مغطاة بالسمسم المحمص والعسل.</p><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
+    </div>
 </div>
 
 <a href="https://wa.me/963982344943" class="whatsapp-float"><img src="رمز واتساب.jfif" alt="واتساب"></a>
@@ -87,4 +93,3 @@
 
 </body>
 </html>
- 
