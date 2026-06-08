@@ -12,7 +12,6 @@
 
     .header-glass { background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); padding: 40px 20px; text-align: center; position: relative; z-index: 10; border-bottom: 2px solid #A67C00; }
 
-    /* دائرة الشيف */
     .chef-circle { width: 150px; height: 150px; margin: 10px auto 20px auto; border-radius: 50%; overflow: hidden; border: 4px solid #f8e3b0; background: rgba(255,255,255,0.1); }
     .chef-circle img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -49,9 +48,10 @@
 
 <div id="products">
     <script>
-        // دالة طلب منتج محدد
         function order(item) {
-            const msg = `أهلاً أم عمر، أرغب بطلب: ${item}`;
+            const msg = `مرحبا شيف ام عمر يسلم ايديكي 🌸
+رأيت منصة أم عمر للحلويات: https://noooraden-debug.github.io/my-new-project/ وأعجبتني! الاصناف جدا
+أرغب بطلب: ${item}`;
             window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
         }
         function scrollToProduct(id) {
@@ -69,9 +69,9 @@
     <div class="card" id="p8"><img src="8.jpg" onclick="scrollToProduct('p8')"><h3>البرازق</h3><p style="font-size: 0.9rem; color: #ddd; margin: 10px 0;">رقائق ذهبية مقرمشة مغطاة بطبقة كثيفة من السمسم المحمص والعسل الطبيعي.</p><a class="order-btn" href="javascript:order('البرازق')">اطلب الآن</a></div>
 </div>
 
-<!-- زر واتساب عائم برسالة عامة -->
-<a href="https://wa.me/963982344943?text=مرحبا أم عمر، أتصفح متجركم وأود الاستفسار عن خدماتكم." style="position:fixed; bottom:30px; left:30px; z-index:100; background:#25D366; padding:20px; border-radius:50%; color:white; font-size:30px; box-shadow:0 6px 15px rgba(0,0,0,0.4); text-decoration:none;">
-    <span>📞</span> <!-- يمكنك استبدالها بأيقونة واتساب -->
+<!-- زر واتساب العائم باستخدام صورة image_96af6b.png -->
+<a href="https://wa.me/963982344943?text=مرحبا أم عمر، أتصفح متجركم وأود الاستفسار عن خدماتكم." style="position:fixed; bottom:30px; left:30px; z-index:100; width:70px; height:70px;">
+    <img src="image_96af6b.png" alt="واتساب" style="width:100%; height:100%; border-radius:50%; box-shadow:0 6px 15px rgba(0,0,0,0.4);">
 </a>
 
 <button onclick="window.scrollTo(0,0)" style="position:fixed; bottom:30px; right:30px; z-index:100; background:#A67C00; border:none; padding:15px; border-radius:50%; color:white; cursor:pointer; font-size:20px;">⬆️</button>
