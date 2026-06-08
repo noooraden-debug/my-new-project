@@ -7,52 +7,63 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 <style>
     body, html { 
-        margin: 0; padding: 0; width: 100%; background-color: #1a1a1a; 
-        color: #fff; font-family: 'Tajawal', sans-serif; overflow-x: hidden; 
+        margin: 0; 
+        padding: 0; 
+        width: 100%; 
+        background-color: #1a1a1a; 
+        color: #fff; 
+        font-family: 'Tajawal', sans-serif; 
+        overflow-x: hidden; 
     }
     
-    /* الفيديو يبقى في الخلفية */
+    /* الفيديو كخلفية ثابتة تماماً وغير تفاعلية */
     .bg-video { 
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-        object-fit: cover; z-index: -1; 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        z-index: -1; 
+        pointer-events: none; 
+        will-change: transform;
     }
 
-    /* طبقة العزل: تمنع أي تداخل مع الفيديو وتجعله "خلف" كل شيء */
-    .video-overlay {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        z-index: 0; pointer-events: none;
+    .content-wrapper {
+        position: relative;
+        z-index: 1;
     }
-
-    /* المحتوى فوق كل شيء */
-    .content-wrapper { position: relative; z-index: 1; }
 
     .header-section { padding: 60px 20px; text-align: center; }
+
     .chef-circle { width: 150px; height: 150px; margin: 10px auto 20px auto; border-radius: 50%; overflow: hidden; border: 4px solid #f8e3b0; }
     .chef-circle img { width: 100%; height: 100%; object-fit: cover; }
+
     .hero-title { font-family: 'Amiri', serif; font-size: 5rem; font-weight: 900; color: #f8e3b0; text-shadow: 2px 2px 0px #3e2723, 0 0 20px #A67C00; margin: 0; }
     .welcome-text { font-size: 1.8rem; margin: 15px 0; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+
     #products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 40px; }
+    
     .card { background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 20px; text-align: center; }
     .card img { width: 100%; height: 250px; border-radius: 15px; object-fit: cover; }
     .card h3 { color: #f8e3b0; margin: 15px 0 10px; }
     .card p { color: #eee; font-size: 0.95rem; margin: 0 0 15px; min-height: 50px; }
+    
     .order-btn { display: block; background: #25D366; color: #fff; padding: 12px; border-radius: 15px; text-decoration: none; font-weight: bold; }
+
     .whatsapp-float { position: fixed; bottom: 30px; left: 30px; z-index: 100; width: 60px; height: 60px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); background-color: #25D366; }
     .whatsapp-float img { width: 100%; height: 100%; object-fit: cover; }
+
     .top-btn { position: fixed; bottom: 30px; right: 30px; z-index: 100; background: #A67C00; border: none; padding: 15px; border-radius: 50%; color: white; cursor: pointer; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 </style>
 </head>
 <body>
 
-<!-- الفيديو -->
-<video class="bg-video" autoplay muted loop playsinline>
+<video class="bg-video" autoplay muted loop playsinline poster="1.jpg">
     <source src="kitchen.mp4" type="video/mp4">
 </video>
-<!-- طبقة العزل -->
-<div class="video-overlay"></div>
 
 <div class="content-wrapper">
-    <!-- المحتوى الخاص بك كما هو -->
     <div class="header-section">
         <div class="chef-circle"><img src="chef.jpg"></div>
         <h1 class="hero-title">أم عمـــر للحلويــــات</h1>
@@ -66,7 +77,6 @@
                 window.location.href = "https://wa.me/963982344943?text=" + encodeURIComponent(msg);
             }
         </script>
-        <!-- بقية البطاقات -->
         <div class="card"><img src="1.jpg"><h3>معمول العجوة</h3><p>أجود أنواع التمر المعجون بلمسة من السمن العربي الأصيل.</p><a class="order-btn" href="javascript:order('معمول العجوة')">اطلب الآن</a></div>
         <div class="card"><img src="2.jpg"><h3>معمول الفستق</h3><p>محشو بحبات الفستق الحلبي الفاخر والمحمص.</p><a class="order-btn" href="javascript:order('معمول الفستق')">اطلب الآن</a></div>
         <div class="card"><img src="3.jpg"><h3>معمول الجوز</h3><p>نكهة الجوز البلدي القوية مع لمسة من القرفة.</p><a class="order-btn" href="javascript:order('معمول الجوز')">اطلب الآن</a></div>
