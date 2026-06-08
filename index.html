@@ -6,22 +6,25 @@
 <title>أم عمر للحلويات</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 <style>
+    /* تم تعيين لون خلفية داكن لتمويه أي فراغ يظهر أثناء التمرير */
     body, html { 
         margin: 0; 
         padding: 0; 
         width: 100%; 
+        height: 100%; 
+        background-color: #1a1a1a; 
         color: #fff; 
         font-family: 'Tajawal', sans-serif; 
         overflow-x: hidden; 
     }
     
-    /* التعديل هنا: استخدام svh و will-change لضمان انسيابية الحركة ومنع الفراغ */
+    /* تثبيت الفيديو واستخدام will-change لتحسين الأداء أثناء التمرير */
     .bg-video { 
         position: fixed; 
         top: 0; 
         left: 0; 
         width: 100%; 
-        height: 100svh; 
+        height: 100%; 
         object-fit: cover; 
         z-index: -1; 
         will-change: transform;
