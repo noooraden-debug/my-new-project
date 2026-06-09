@@ -88,17 +88,24 @@
 </div>
 
 <script>
-    // الرسالة المخصصة للزر العائم
     const floatMsg = "مرحبا شيف أم عمر سلمت يداكي، لقد تصفحت المنصة المميزة وأعجبت بالاصناف الفريدة المميزة بداخلها، أرغب بالاستفسار عن الأسعار ووقت التسليم. \nالرابط: https://noooraden-debug.github.io/my-new-project/";
     const whatsappLink = "https://wa.me/963982344943?text=" + encodeURIComponent(floatMsg);
 </script>
 
-<!-- سكربت عداد الزوار اليومي -->
 <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getDatabase, ref, runTransaction } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
-    const db = getDatabase(); 
+
+    const firebaseConfig = {
+        databaseURL: "https://nesreen-sweets-default-rtdb.firebaseio.com"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app); 
+    
     const today = new Date().toISOString().split('T')[0];
     const dailyRef = ref(db, 'site_stats/daily/' + today);
+    
     runTransaction(dailyRef, (currentCount) => {
         return (currentCount || 0) + 1;
     });
